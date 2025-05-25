@@ -8,16 +8,16 @@ OBJ_DIR   := build
 INC_DIR   := include
 
 # Targets and artifacts
-TARGET    := $(OBJ_DIR)\avx_delphi.dll
+TARGET    := $(OBJ_DIR)\vector_delphi.dll
 
 # Source and object files
-AVX_SRC   := $(SRC_DIR)\avx_delphi.c
-AVX_OBJ   := $(OBJ_DIR)\avx_delphi.o
+AVX_SRC   := $(SRC_DIR)\vector_delphi.c
+AVX_OBJ   := $(OBJ_DIR)\vector_delphi.o
 SRCS      := $(AVX_SRC)
 OBJS      := $(AVX_OBJ)
 
 # Header files
-HEADERS   := $(INC_DIR)\avx_delphi.h
+HEADERS   := $(INC_DIR)\vector_delphi.h
 
 # Default target
 all: $(TARGET)

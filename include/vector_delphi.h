@@ -1,9 +1,9 @@
 #pragma once
 
-#ifdef AVX_DELPHI_EXPORTS
-#define AVX_DELPHI_API __declspec(dllexport)
+#ifdef VECTOR_DELPHI_EXPORTS
+#define VECTOR_DELPHI_API __declspec(dllexport)
 #else
-#define AVX_DELPHI_API __declspec(dllimport)
+#define VECTOR_DELPHI_API __declspec(dllimport)
 #endif
 
 #ifdef __AVX__
@@ -15,10 +15,12 @@
   typedef __m128d VDouble;
   #define VDOUBLE_LEN 2
 #else
-  typedef struct { double val; } VDouble;
+  typedef double VDouble;
   #define VDOUBLE_LEN 1
 #endif
 
-AVX_DELPHI_API int vlength_double();
-AVX_DELPHI_API void vadd_double(double* A, double* B, double *C);
-AVX_DELPHI_API void vmul_double(double* A, double* B, double *C);
+VECTOR_DELPHI_API int vlength_double();
+VECTOR_DELPHI_API VDouble vload_double(double* A);
+VECTOR_DELPHI_API void vstore_double(double *A, VDouble vecA);
+VECTOR_DELPHI_API VDouble vadd_double(VDouble A, VDouble B);
+VECTOR_DELPHI_API VDouble vmul_double(VDouble A, VDouble B);

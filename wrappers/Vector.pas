@@ -5,12 +5,17 @@ interface
 uses
   System.SysUtils;
 
-const
-  DLLPATH = '../../vector_delphi.dll';
+types
+  TVectorD = PDouble;
 
-function VLengthDouble:Integer; cdecl; external DLLPATH name 'vlength_double';
-function VectorAdd(A, B, C: PDouble): Double; cdecl; external DLLPATH name 'vadd_double';
-function VectorMul(A, B, C: PDouble): Double; cdecl; external DLLPATH name 'vmul_double';
+const
+  DLLNAME = 'vector_delphi.dll';
+
+function VLengthDouble:Integer; cdecl; external DLLNAME name 'vlength_double';
+function VectorLoad(A: PDouble): TVectorD; cdecl; external DLLNAME name 'vload_double';
+function VectorLoad(A: TVectorD): PDouble; cdecl; external DLLNAME name 'vload_double';
+function VectorAdd(A, B, C: TVectorD); cdecl; external DLLNAME name 'vadd_double';
+function VectorMul(A, B, C: TVectorD); cdecl; external DLLNAME name 'vmul_double';
 
 implementation
 
