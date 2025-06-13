@@ -1,8 +1,8 @@
-#include "..\include\vector_delphi.h"
+#include "..\include\intel_simd_delphi.h"
 
-VECTOR_DELPHI_API int vlength_double() { return VDOUBLE_LEN; }
+INTEL_SIMD_DELPHI_API int vlength_double() { return VDOUBLE_LEN; }
 
-VECTOR_DELPHI_API void vfma_double(const double *a, const double *b, double *c)
+INTEL_SIMD_DELPHI_API void vfma_double(const double *a, const double *b, double *c)
 {
 #if defined(__AVX__)
     VDouble vecA = _mm256_loadu_pd(a);
@@ -21,7 +21,7 @@ VECTOR_DELPHI_API void vfma_double(const double *a, const double *b, double *c)
 #endif
 }
 
-VECTOR_DELPHI_API void vadd_double(const double *a, const double *b, double *out)
+INTEL_SIMD_DELPHI_API void vadd_double(const double *a, const double *b, double *out)
 {
 #if defined(__AVX__)
     VDouble vecA = _mm256_loadu_pd(a);
@@ -38,7 +38,7 @@ VECTOR_DELPHI_API void vadd_double(const double *a, const double *b, double *out
 #endif
 }
 
-VECTOR_DELPHI_API void vmul_double(const double *a, const double *b, double *out)
+INTEL_SIMD_DELPHI_API void vmul_double(const double *a, const double *b, double *out)
 {
 #if defined(__AVX__)
     VDouble vecA = _mm256_loadu_pd(a);
@@ -52,5 +52,27 @@ VECTOR_DELPHI_API void vmul_double(const double *a, const double *b, double *out
     _mm_storeu_pd(out, vecOut);
 #else
     *out = *a * *b;
+#endif
+}
+
+INTEL_SIMD_DELPHI_API void vreduce_double(const double *a, double *out)
+{
+    *out = 0.0;
+#if defined(__AVX__)
+    VDouble vecA = _mm256_loadu_pd(a);
+    __m256d t1 = _mm256_hadd_pd(vecA, vecA);
+
+    __m128d hi = _mm256_extractf128_pd(t1, 1);
+    __m128d lo = _mm256_castpd256_pd128(t1);
+
+    __m128d sum128 = _mm_add_pd(lo, hi);
+
+    *out = _mm_cvtsd_f64(sum128);
+#elif defined(__SSE2__)
+    for (int i = 0; i < VDOUBLE_LEN; i++)
+        *out += a[i];
+#else
+    for (int i = 0; i < VDOUBLE_LEN; i++)
+        *out += a[i];
 #endif
 }
