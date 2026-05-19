@@ -5,8 +5,6 @@
 
 `vector_simd_delphi` is a dynamic library written in C, providing vectorized operations on double-precision floating-point arrays for Delphi applications. This module is designed to accelerate mathematical and algebraic computations in High-Performance Computing (HPC) scenarios, serving as a core dependency for optimized matrix processing.
 
----
-
 ## Features
 
 - **SIMD Vectorization**: Implements dynamic instruction set dispatching (AVX, SSE2, or scalar fallback) depending on the compilation flags and target architecture.
@@ -15,8 +13,6 @@
 - **High-Performance Computing**: Enables vectorized/optimized computations for improved performance.
 - **Cross-Language Compatibility**: Distributed as a DLL, accessible from various programming environments.
 - **Modern Toolchain Support**: Built and tested with the latest GCC toolchain for Windows 11.
-
----
 
 ## Requirements & Development Environment
 
@@ -28,8 +24,6 @@ The library is developed, tested, and intended to be used in the following envir
 - **Dependencies**: No external third-party libraries required. Uses standard Intel intrinsic headers (`immintrin.h`, `emmintrin.h`).
 - **Build System**: `mingw32-make`
 - **Delphi Integration**: RAD Studio (Delphi 12.1 Community Edition)
-
----
 
 ## Project Structure
 
@@ -48,8 +42,6 @@ vector_simd_delphi/
 └── README.md               # Project documentation
 ```
 
----
-
 ## Compilation Instructions
 
 To build the library as a DLL:
@@ -64,8 +56,6 @@ To build the library as a DLL:
    ```
 
 This will generate `vector_simd_delphi.dll` in the `build/` directory.
-
----
 
 ## Using the Library in Delphi
 
@@ -87,13 +77,9 @@ VectorFMA(@ArrayA[0], @ArrayB[0], @ArrayC[0], Length);
 VectorReduce(@ArrayA[0], @SumResult, Length);
 ```
 
----
-
 ## Academic Citation
 
 If you use this software in your research, please cite it using the metadata provided in the `CITATION.cff` file located in the root of this repository.
-
----
 
 ## License
 
