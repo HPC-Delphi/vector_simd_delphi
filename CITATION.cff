@@ -1,21 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software in your research, please cite it using the metadata below."
-authors:
-  - family-names: "Galdo Galián"
-    given-names: "Daniel"
-    affiliation: "Universidad de Murcia"
+message: "If you use this software, please cite it as below."
 title: "vector_simd_delphi - SIMD Operations Library for Delphi Integration"
 abstract: "A dynamic library written in C that provides highly optimized, vectorized mathematical operations (Addition, Multiplication, FMA, and Reduction) for double-precision arrays using Intel SIMD instructions (AVX/SSE2), wrapped for Delphi Pascal."
-type: software
+authors:
+  - family-names: Galdo Galián
+    given-names: Daniel
+    orcid: "https://orcid.org/0009-0000-4952-1649"
 version: 1.0.0
-date-released: 2026-05-19
-license: MIT
+date-released: 2026-05-21
 repository-code: "https://github.com/HPC-Delphi/vector_simd_delphi"
-keywords:
-  - "simd"
-  - "avx"
-  - "sse2"
-  - "delphi"
-  - "pascal"
-  - "hpc"
-  - "vectorization"
