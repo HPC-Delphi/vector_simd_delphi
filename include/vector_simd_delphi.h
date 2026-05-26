@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef INTEL_SIMD_DELPHI_EXPORTS
+#ifdef VECTOR_SIMD_DELPHI_EXPORTS
 #define VECTOR_SIMD_DELPHI_API __declspec(dllexport)
 #else
 #define VECTOR_SIMD_DELPHI_API __declspec(dllimport)

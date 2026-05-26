@@ -28,7 +28,7 @@ The library is developed, tested, and intended to be used in the following envir
 To compile this library, you must install a specific GCC toolchain. Follow these steps carefully:
 
 **1. Download the Correct Compiler Version**
-* Navigate to [winlibs.com](winlibs.com).
+* Navigate to [winlibs.com](https://winlibs.com/).
 
 * Locate the block titled: **"GCC 15.1.0 (with POSIX threads) + MinGW-w64 12.0.0 (UCRT) - release 1"**.
 
@@ -74,10 +74,10 @@ vector_simd_delphi/
 ├── build/                   # Compiled binaries and intermediate files
 ├── include/                 # Public API headers (C)
 │   └── vector_simd_delphi.h
+├── interface/               # Delphi wrapper
+│   └── VectorSIMD.pas
 ├── src/                     # C source code
 │   └── vector_simd_delphi.c
-├── wrappers/                # Delphi wrapper
-│   └── VectorSIMD.pas
 ├── LICENSE                  # License information
 ├── Makefile                 # Build script for DLL
 └── README.md                # Project documentation
@@ -103,6 +103,7 @@ This will generate `vector_simd_delphi.dll` in the `build\` directory.
 ## Using the Library in Delphi
 
 ### 1. Linking the DLL (Choose One Method)
+
 To allow your Delphi application to load and communicate with the dynamic library, you must make `vector_simd_delphi.dll` discoverable by Windows. You can achieve this using one of the following methods:
 
 **Method A: Add the Build Directory to the System Path (*Recommended for Development*)**  
@@ -128,7 +129,7 @@ To use the library functions natively inside your Delphi Pascal source code, fol
 
 4. In the main area, click the **Search Path** field.
 
-5. Click on the ellipsis `...` button and add the absolute path to the `wrappers/` folder inside your repository (e.g.: `C:\Projects\vector_simd_delphi\wrappers`).
+5. Click on the ellipsis `...` button and add the absolute path to the `interface\` folder inside your repository (e.g.: `C:\Projects\vector_simd_delphi\interface`).
 
 6. Click **OK** and then **Save**.
 

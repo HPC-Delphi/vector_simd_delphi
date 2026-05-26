@@ -6,14 +6,15 @@ OBJ_DIR   := build
 INC_DIR   := include
 
 TARGET    := $(OBJ_DIR)\vector_simd_delphi.dll
-SRC   := $(SRC_DIR)\vector_simd_delphi.c
-OBJ   := $(OBJ_DIR)\vector_simd_delphi.o
-INC   := $(INC_DIR)\vector_simd_delphi.h
+SRC       := $(SRC_DIR)\vector_simd_delphi.c
+OBJ       := $(OBJ_DIR)\vector_simd_delphi.o
+INC       := $(INC_DIR)\vector_simd_delphi.h
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
+	del /q $(OBJ)
 
 $(OBJ): $(SRC) $(INC) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)

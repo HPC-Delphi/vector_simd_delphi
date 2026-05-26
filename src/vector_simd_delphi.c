@@ -86,7 +86,9 @@ VECTOR_SIMD_DELPHI_API void vreduce_double(const double *a, double *out, int len
 {
     VDouble vecA;
     double sum = 0.0;
-    for (int i = 0; i <= length - VDOUBLE_LEN; i += VDOUBLE_LEN)
+    int i = 0;
+
+    for (i = 0; i <= length - VDOUBLE_LEN; i += VDOUBLE_LEN)
     {
 #if defined(__AVX__)
         vecA = _mm256_loadu_pd(&a[i]);
@@ -106,5 +108,9 @@ VECTOR_SIMD_DELPHI_API void vreduce_double(const double *a, double *out, int len
             sum += a[i + j];
 #endif
     }
+
+    for (; i < length; i++)
+        sum += a[i];
+
     *out = sum;
 }
