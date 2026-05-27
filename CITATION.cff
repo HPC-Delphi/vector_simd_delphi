@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "vector_simd_delphi - SIMD Operations Library for Delphi Integration"
 abstract: "A dynamic library written in C that provides highly optimized, vectorized mathematical operations (Addition, Multiplication, FMA, and Reduction) for double-precision arrays using Intel SIMD instructions (AVX/SSE2), wrapped for Delphi Pascal."
 authors:
-  - family-names: Galdo Galián
+  - family-names: Galdo
     given-names: Daniel
     orcid: "https://orcid.org/0009-0000-4952-1649"
 version: 1.0.0
